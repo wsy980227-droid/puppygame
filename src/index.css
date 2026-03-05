@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=ZCOOL+KuaiLe&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "ZCOOL KuaiLe", cursive;
+  --font-priority: "STXihei", "PingFang SC", "Microsoft YaHei UI", sans-serif;
+  
+  --color-soft-bg: #FFF9F0;
+  --color-soft-pink: #FFAB76;
+  --color-soft-blue: #FFDCAE;
+  --color-soft-text: #5C4033;
+  --color-soft-cream: #FFF9F0;
+  
+  /* Keep some legacy names for compatibility but map to new palette */
+  --color-puppy-cream: #FFF9F0;
+  --color-puppy-brown: #5C4033;
+  --color-puppy-orange: #FFAB76;
+  --color-puppy-dark: #5C4033;
+  --color-puppy-accent: #FFDCAE;
+  --color-puppy-yellow: #FFF9F0;
+}
+
+@layer base {
+  * {
+    @apply border-soft-text/10;
+    font-weight: 600;
+  }
+  
+  body {
+    background-color: var(--color-soft-bg);
+    color: var(--color-soft-text);
+    font-family: var(--font-sans);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button, input, textarea, select {
+    border-radius: 2rem;
+  }
+}
+
+/* Specific font priority class for logo and answers */
+.font-priority {
+  font-family: var(--font-priority);
+}
+
+/* Viewport-Fill Layout Utilities */
+.viewport-fill {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-area {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4rem;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.puppy-card {
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 4px 20px rgba(92, 64, 51, 0.05);
+  border: 1px solid rgba(92, 64, 51, 0.05);
+}
+
+.puppy-button {
+  background: var(--color-soft-pink);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 2rem;
+  font-family: var(--font-sans);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 171, 118, 0.2);
+}
+
+.puppy-button:hover {
+  transform: scale(0.96); /* Marshmallow under pressure effect */
+  background: #FFDCAE;
+  color: var(--color-soft-text);
+  box-shadow: 0 2px 8px rgba(255, 171, 118, 0.1);
+}
+
+.puppy-button:active {
+  transform: scale(0.92);
+}
+
+.puppy-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.puppy-input {
+  background: white;
+  border: 2px solid var(--color-soft-blue);
+  border-radius: 2rem;
+  padding: 12px 20px;
+  outline: none;
+  transition: all 0.2s;
+  color: var(--color-soft-text);
+}
+
+.puppy-input:focus {
+  border-color: var(--color-soft-pink);
+  box-shadow: 0 0 0 4px rgba(255, 171, 118, 0.1);
+}
+
+.rounded-extreme {
+  border-radius: 2rem !important;
+}
+
+img, video, .video-container {
+  border-radius: 2rem;
+  object-fit: contain;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

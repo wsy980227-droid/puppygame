@@ -1,0 +1,7 @@
+{
+  "name": "芒狗不忙 🥭",
+  "description": "为抖音游戏博主设计的温馨小狗主题游戏助手，包含人物竞猜、听歌识曲等环节。",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
